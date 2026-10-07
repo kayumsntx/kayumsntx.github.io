@@ -175,15 +175,15 @@ Jan 2023 – Dec 2023
 
 **Bachelor of Arts (B.A.) in English**  
 City University — 2024  
-CGPA: 2.93
+
 
 **HSC — Science**  
 Govt. Dhamrai College — 2019  
-GPA: 3.17
+
 
 **SSC — Science**  
 Gakulnagar High School — 2017  
-GPA: 4.77
+
 
 ---
 
