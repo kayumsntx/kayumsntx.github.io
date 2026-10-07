@@ -3,177 +3,1585 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kayum | Developer Portfolio</title>
+
+    <title>Md Kayum Hossain | Software Developer</title>
+
+    <meta name="description"
+          content="Md Kayum Hossain - Software Developer specializing in ASP.NET Core, C#, SQL Server, Angular, React and RESTful APIs.">
+
+    <meta name="author" content="Md Kayum Hossain">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
     <style>
+
+        /* =========================
+           GLOBAL
+        ========================= */
+
         :root {
-            --bg-color: #0d1117;
-            --card-bg: #161b22;
-            --text-color: #c9d1d9;
-            --text-muted: #8b949e;
-            --accent-color: #58a6ff;
-            --border-color: #30363d;
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --dark: #0f172a;
+            --text: #334155;
+            --muted: #64748b;
+            --light: #f8fafc;
+            --border: #e2e8f0;
+            --white: #ffffff;
+            --success: #16a34a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            margin: 0;
-            padding: 40px 20px;
+            font-family: "Inter", sans-serif;
+            color: var(--text);
+            background: var(--white);
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
         }
 
         .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 30px;
-        }
-
-        h1 {
-            color: #ffffff;
-            margin-bottom: 10px;
-        }
-
-        .subtitle {
-            color: var(--accent-color);
-            font-size: 1.2rem;
-            margin-top: 0;
-        }
-
-        .links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            margin: 0 10px;
-            transition: color 0.2s;
-        }
-
-        .links a:hover {
-            color: var(--accent-color);
+            width: min(1120px, 92%);
+            margin: auto;
         }
 
         section {
-            margin-bottom: 40px;
+            padding: 90px 0;
         }
 
-        h2 {
-            color: #ffffff;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 8px;
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
         }
 
-        .skills-list {
+        .section-title h2 {
+            font-size: 32px;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--muted);
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+        }
+
+        nav {
+            height: 70px;
             display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            padding: 0;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 21px;
+            font-weight: 800;
+            color: var(--dark);
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
             list-style: none;
         }
 
-        .skills-list li {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 6px 12px;
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text);
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .menu-btn {
+            display: none;
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background:
+                radial-gradient(circle at top right,
+                rgba(37,99,235,0.12),
+                transparent 35%),
+                var(--light);
+            padding-top: 70px;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #dbeafe;
+            color: #1d4ed8;
+            padding: 7px 14px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 70px);
+            line-height: 1.05;
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero h2 {
+            font-size: clamp(20px, 3vw, 28px);
+            color: var(--text);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .hero p {
+            max-width: 760px;
+            color: var(--muted);
+            font-size: 17px;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 22px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--border);
+            color: var(--dark);
+            background: white;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about {
+            background: white;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 25px;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .about-text p {
+            color: var(--muted);
+            margin-bottom: 15px;
+        }
+
+        .quick-info {
+            display: grid;
+            gap: 12px;
+        }
+
+        .info-card {
+            padding: 18px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: var(--light);
+        }
+
+        .info-card strong {
+            color: var(--dark);
+        }
+
+
+        /* =========================
+           EXPERIENCE
+        ========================= */
+
+        .experience {
+            background: var(--light);
+        }
+
+        .timeline {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 0 0 40px 35px;
+            border-left: 2px solid #bfdbfe;
+        }
+
+        .timeline-item:last-child {
+            border-left: none;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -7px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            background: var(--primary);
+            border-radius: 50%;
+        }
+
+        .timeline-item h3 {
+            color: var(--dark);
+            font-size: 20px;
+        }
+
+        .company {
+            color: var(--primary);
+            font-weight: 600;
+            margin: 5px 0;
+        }
+
+        .date {
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .timeline-item ul {
+            padding-left: 20px;
+            color: var(--muted);
+        }
+
+
+        /* =========================
+           SKILLS
+        ========================= */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            border: 1px solid var(--border);
+            padding: 25px;
+            border-radius: 12px;
+            background: white;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: #93c5fd;
+            box-shadow: 0 10px 30px rgba(15,23,42,0.08);
+        }
+
+        .skill-card h3 {
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: var(--light);
+            border: 1px solid var(--border);
+            padding: 5px 10px;
             border-radius: 6px;
-            font-size: 0.9rem;
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           PROJECTS
+        ========================= */
+
+        .projects {
+            background: var(--light);
         }
 
         .project-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        @media (max-width: 600px) {
-            .project-grid {
-                grid-template-columns: 1fr;
-            }
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
         }
 
         .project-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 20px;
-            border-radius: 6px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(15,23,42,0.08);
         }
 
         .project-card h3 {
-            margin-top: 0;
-        }
-
-        .project-card h3 a {
-            color: var(--accent-color);
-            text-decoration: none;
-        }
-
-        .project-card h3 a:hover {
-            text-decoration: underline;
+            color: var(--dark);
+            margin-bottom: 10px;
         }
 
         .project-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 15px;
         }
+
+        .project-tech {
+            color: var(--primary);
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 18px;
+        }
+
+        .project-links {
+            margin-top: auto;
+            display: flex;
+            gap: 10px;
+        }
+
+        .project-link {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+
+        /* =========================
+           EDUCATION
+        ========================= */
+
+        .education-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .education-card {
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 25px;
+        }
+
+        .education-card h3 {
+            color: var(--dark);
+        }
+
+        .education-card p {
+            color: var(--muted);
+        }
+
+
+        /* =========================
+           TRAINING
+        ========================= */
+
+        .training {
+            background: var(--light);
+        }
+
+        .training-box {
+            max-width: 850px;
+            margin: auto;
+            padding: 35px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+
+        .training-box h3 {
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .training-box ul {
+            padding-left: 20px;
+            color: var(--muted);
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .contact p {
+            color: #cbd5e1;
+            margin-bottom: 30px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .contact-link {
+            border: 1px solid #475569;
+            padding: 10px 18px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .contact-link:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #020617;
+            color: #94a3b8;
+            text-align: center;
+            padding: 20px;
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            .nav-links {
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: white;
+                display: none;
+                flex-direction: column;
+                padding: 20px;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .about-grid,
+            .project-grid,
+            .education-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            section {
+                padding: 65px 0;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+        }
+
     </style>
 </head>
+
 <body>
 
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<header>
+
     <div class="container">
-        <!-- Profile Header -->
-        <header>
-            <h1>Your Name</h1>
-            <p class="subtitle">Software Engineer / Web Developer</p>
-            <div class="links">
-                <a href="https://github.com" target="_blank">GitHub</a> • 
-                <a href="https://linkedin.com" target="_blank">LinkedIn</a> • 
-                <a href="mailto:your.email@example.com">Email</a>
-            </div>
-        </header>
 
-        <!-- About Section -->
-        <section id="about">
-            <h2>About Me</h2>
-            <p>Hello! I am a passionate developer focused on building clean, efficient, and user-friendly applications. I love solving complex technical problems and transforming ideas into functional code.</p>
-        </section>
+        <nav>
 
-        <!-- Tech Stack / Skills Section -->
-        <section id="skills">
-            <h2>Skills</h2>
-            <ul class="skills-list">
-                <li>JavaScript (ES6+)</li>
-                <li>HTML5 & CSS3</li>
-                <li>React.js</li>
-                <li>Node.js</li>
-                <li>Git & GitHub</li>
-                <li>SQL / MongoDB</li>
+            <a href="#home" class="logo">
+                Kayum<span>.</span>
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
-        </section>
 
-        <!-- Featured Projects Section -->
-        <section id="projects">
-            <h2>Projects</h2>
-            <div class="project-grid">
-                
-                <!-- Project 1 -->
-                <div class="project-card">
-                    <h3><a href="#" target="_blank">Project One Name</a></h3>
-                    <p>A brief 1-2 sentence description explaining what this application does and what problems it solves for the user.</p>
+            <div class="menu-btn" id="menuBtn">
+                ☰
+            </div>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero" id="home">
+
+    <div class="container">
+
+        <div class="hero-content">
+
+            <span class="badge">
+                Software Developer
+            </span>
+
+            <h1>
+                Md Kayum <span>Hossain</span>
+            </h1>
+
+            <h2>
+                ASP.NET Core · C# · SQL Server · Angular · React
+            </h2>
+
+            <p>
+                Software Developer with hands-on experience building
+                business applications and RESTful APIs using C#, ASP.NET Core,
+                Entity Framework, SQL Server, Angular and React.
+                Experienced in ERP implementation, enterprise IT operations
+                and full-stack software development.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#projects" class="btn btn-primary">
+                    View Projects
+                </a>
+
+                <a href="https://github.com/kayumsntx"
+                   target="_blank"
+                   class="btn btn-outline">
+                    GitHub
+                </a>
+
+                <a href="mailto:mdcu24@gmail.com"
+                   class="btn btn-outline">
+                    Contact Me
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section id="about">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>About Me</h2>
+
+            <p>
+                Software development, enterprise systems and business applications
+            </p>
+
+        </div>
+
+
+        <div class="about-grid">
+
+            <div class="about-text">
+
+                <h3>Building Practical Software Solutions</h3>
+
+                <p>
+                    I am an aspiring Full Stack Developer with practical
+                    experience in software development, ERP implementation,
+                    enterprise IT operations and business process automation.
+                </p>
+
+                <p>
+                    My development experience includes ASP.NET Core,
+                    Web API, Entity Framework, SQL Server, Angular,
+                    React, Node.js and MongoDB.
+                </p>
+
+                <p>
+                    I enjoy building database-driven applications,
+                    RESTful APIs and business-focused software solutions.
+                </p>
+
+            </div>
+
+
+            <div class="quick-info">
+
+                <div class="info-card">
+                    <strong>📍 Location</strong>
+                    <br>
+                    Savar, Dhaka, Bangladesh
                 </div>
 
-                <!-- Project 2 -->
-                <div class="project-card">
-                    <h3><a href="#" target="_blank">Project Two Name</a></h3>
-                    <p>A brief 1-2 sentence description explaining what this application does and what problems it solves for the user.</p>
+                <div class="info-card">
+                    <strong>💼 Current Role</strong>
+                    <br>
+                    Software Developer Intern
+                </div>
+
+                <div class="info-card">
+                    <strong>⚙️ Main Stack</strong>
+                    <br>
+                    ASP.NET Core, C#, SQL Server, Angular
+                </div>
+
+                <div class="info-card">
+                    <strong>🎯 Career Focus</strong>
+                    <br>
+                    Software Engineer / Full Stack Developer
                 </div>
 
             </div>
-        </section>
+
+        </div>
+
     </div>
+
+</section>
+
+
+<!-- =========================
+     EXPERIENCE
+========================= -->
+
+<section class="experience" id="experience">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>Work Experience</h2>
+
+            <p>Professional experience and enterprise exposure</p>
+
+        </div>
+
+
+        <div class="timeline">
+
+            <!-- STAR -->
+
+            <div class="timeline-item">
+
+                <h3>Software Developer Intern</h3>
+
+                <div class="company">
+                    Star Computer System Ltd. — Panthapath, Dhaka
+                </div>
+
+                <div class="date">
+                    Sep 2026 – Present
+                </div>
+
+                <ul>
+
+                    <li>
+                        Developing cross-platform applications using
+                        ASP.NET Core, Angular and React.
+                    </li>
+
+                    <li>
+                        Building and consuming RESTful APIs integrated
+                        with SQL Server and Entity Framework.
+                    </li>
+
+                    <li>
+                        Contributing to enterprise-level software
+                        solutions under senior developer mentorship.
+                    </li>
+
+                    <li>
+                        Collaborating in Agile development and
+                        sprint-based delivery cycles.
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- SNOWTEX -->
+
+            <div class="timeline-item">
+
+                <h3>Supervisor — ERP Implementation</h3>
+
+                <div class="company">
+                    Snowtex Group — Dhamrai, Dhaka
+                </div>
+
+                <div class="date">
+                    Feb 2024 – Dec 2025
+                </div>
+
+                <ul>
+
+                    <li>
+                        Worked with ERP implementation in the
+                        Finishing Department.
+                    </li>
+
+                    <li>
+                        Prepared and managed packing-list reporting
+                        and production tracking.
+                    </li>
+
+                    <li>
+                        Provided ERP training and supported users.
+                    </li>
+
+                    <li>
+                        Collaborated with IT teams to resolve
+                        ERP-related issues.
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- UNILEVER -->
+
+            <div class="timeline-item">
+
+                <h3>Assistant IT</h3>
+
+                <div class="company">
+                    Unilever Bangladesh Ltd. — Savar, Dhaka
+                </div>
+
+                <div class="date">
+                    Jan 2023 – Dec 2023
+                </div>
+
+                <ul>
+
+                    <li>
+                        Worked with DMS software for challan,
+                        memo, target updates and reporting.
+                    </li>
+
+                    <li>
+                        Supported Azure backup activities.
+                    </li>
+
+                    <li>
+                        Worked with OSDS system for SO, JSO,
+                        employee CV and daily market-data updates.
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SKILLS
+========================= -->
+
+<section id="skills">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>Technical Skills</h2>
+
+            <p>Technologies and engineering practices</p>
+
+        </div>
+
+
+        <div class="skills-grid">
+
+
+            <div class="skill-card">
+
+                <h3>Frontend</h3>
+
+                <div class="skill-tags">
+
+                    <span class="skill-tag">HTML5</span>
+                    <span class="skill-tag">CSS3</span>
+                    <span class="skill-tag">Bootstrap</span>
+                    <span class="skill-tag">JavaScript ES6+</span>
+                    <span class="skill-tag">jQuery</span>
+                    <span class="skill-tag">Angular</span>
+                    <span class="skill-tag">React.js</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <h3>Backend</h3>
+
+                <div class="skill-tags">
+
+                    <span class="skill-tag">C#</span>
+                    <span class="skill-tag">ASP.NET MVC</span>
+                    <span class="skill-tag">ASP.NET Core</span>
+                    <span class="skill-tag">Web API</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">Express.js</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <h3>Database</h3>
+
+                <div class="skill-tags">
+
+                    <span class="skill-tag">MS SQL Server</span>
+                    <span class="skill-tag">T-SQL</span>
+                    <span class="skill-tag">MongoDB</span>
+                    <span class="skill-tag">Entity Framework</span>
+                    <span class="skill-tag">ADO.NET</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <h3>Architecture</h3>
+
+                <div class="skill-tags">
+
+                    <span class="skill-tag">OOP</span>
+                    <span class="skill-tag">OOAD</span>
+                    <span class="skill-tag">MVC</span>
+                    <span class="skill-tag">N-Tier</span>
+                    <span class="skill-tag">Clean Architecture</span>
+                    <span class="skill-tag">Repository Pattern</span>
+                    <span class="skill-tag">Factory Pattern</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <h3>API & Development</h3>
+
+                <div class="skill-tags">
+
+                    <span class="skill-tag">RESTful API</span>
+                    <span class="skill-tag">JWT</span>
+                    <span class="skill-tag">CRUD</span>
+                    <span class="skill-tag">Entity Framework Core</span>
+                    <span class="skill-tag">SPA</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <h3>Tools</h3>
+
+                <div class="skill-tags">
+
+                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">GitHub</span>
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">Postman</span>
+                    <span class="skill-tag">VS Code</span>
+                    <span class="skill-tag">Render</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PROJECTS
+========================= -->
+
+<section class="projects" id="projects">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>Featured Projects</h2>
+
+            <p>
+                Selected software development projects from my GitHub
+            </p>
+
+        </div>
+
+
+        <div class="project-grid">
+
+
+            <!-- HRMS -->
+
+            <div class="project-card">
+
+                <h3>
+                    HRMS Management System
+                </h3>
+
+                <div class="project-tech">
+                    ASP.NET Core · C# · SQL Server · EF Core · Angular
+                </div>
+
+                <p>
+                    Industry-oriented HRMS training project using
+                    ASP.NET Core, SQL Server, Entity Framework Core,
+                    Angular and Code First architecture.
+                </p>
+
+                <p>
+                    The project focuses on modular business functionality,
+                    employee management and enterprise application structure.
+                </p>
+
+                <div class="project-links">
+
+                    <a class="project-link"
+                       href="https://github.com/kayumsntx/HRMS-Management-System"
+                       target="_blank">
+                        GitHub →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT API -->
+
+            <div class="project-card">
+
+                <h3>
+                    ASP.NET Core Product Sale Web API
+                </h3>
+
+                <div class="project-tech">
+                    ASP.NET Core · C# · EF Core · SQL Server · REST API
+                </div>
+
+                <p>
+                    Database-driven RESTful Web API for product
+                    sales operations with Entity Framework Core
+                    and SQL Server integration.
+                </p>
+
+                <div class="project-links">
+
+                    <a class="project-link"
+                       href="https://github.com/kayumsntx/AspNetCore-ProductSale-Api"
+                       target="_blank">
+                        GitHub →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- JWT -->
+
+            <div class="project-card">
+
+                <h3>
+                    Secure Web API with JWT Authentication
+                </h3>
+
+                <div class="project-tech">
+                    ASP.NET Core · Web API · JWT · SQL Server
+                </div>
+
+                <p>
+                    Secure ASP.NET Core Web API implementing
+                    JWT Bearer authentication and role-based
+                    authorization.
+                </p>
+
+                <div class="project-links">
+
+                    <a class="project-link"
+                       href="https://github.com/kayumsntx/AspNetCore-WebApi-Jwt-Authentication"
+                       target="_blank">
+                        GitHub →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- ECOMMERCE -->
+
+            <div class="project-card">
+
+                <h3>
+                    E-Commerce Production Platform
+                </h3>
+
+                <div class="project-tech">
+                    MERN · MongoDB · Express.js · React · Node.js
+                </div>
+
+                <p>
+                    Full-stack e-commerce platform with POS,
+                    inventory management and order tracking.
+                    Includes REST APIs, MongoDB/Mongoose,
+                    Cloudinary and courier API integration.
+                </p>
+
+                <div class="project-links">
+
+                    <a class="project-link"
+                       href="https://github.com/kayumsntx/E-commerceProductionMongoDB"
+                       target="_blank">
+                        GitHub →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- STUDENT -->
+
+            <div class="project-card">
+
+                <h3>
+                    Student Course Management System
+                </h3>
+
+                <div class="project-tech">
+                    C# · .NET · SQL Server · OOP
+                </div>
+
+                <p>
+                    Database-driven application implementing
+                    CRUD operations with Repository and Factory
+                    design patterns.
+                </p>
+
+                <div class="project-links">
+
+                    <a class="project-link"
+                       href="https://github.com/kayumsntx/Student-Course-Management-System"
+                       target="_blank">
+                        GitHub →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- SQL -->
+
+            <div class="project-card">
+
+                <h3>
+                    SQL Server Database Learning Project
+                </h3>
+
+                <div class="project-tech">
+                    MS SQL Server · T-SQL
+                </div>
+
+                <p>
+                    Practical SQL Server project covering complex
+                    queries, stored procedures, triggers and
+                    window functions.
+                </p>
+
+                <div class="project-links">
+
+                    <a class="project-link"
+                       href="https://github.com/kayumsntx/SQLServerLearningProject"
+                       target="_blank">
+                        GitHub →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- BLOOD -->
+
+            <div class="project-card">
+
+                <h3>
+                    Blood Donation Management System
+                </h3>
+
+                <div class="project-tech">
+                    MERN · React · Node.js · MongoDB
+                </div>
+
+                <p>
+                    Database-driven blood donation management
+                    application for managing donor and
+                    recipient information.
+                </p>
+
+                <div class="project-links">
+
+                    <a class="project-link"
+                       href="https://github.com/kayumsntx/Blood-Donation-Management-System"
+                       target="_blank">
+                        GitHub →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- MVC -->
+
+            <div class="project-card">
+
+                <h3>
+                    ASP.NET MVC 5 Employee Management System
+                </h3>
+
+                <div class="project-tech">
+                    ASP.NET MVC 5 · EF6 · SQL Server · jQuery · AJAX
+                </div>
+
+                <p>
+                    Database-driven employee management application
+                    implementing Master-Detail CRUD operations,
+                    Entity Framework and N-tier architecture.
+                </p>
+
+                <div class="project-links">
+
+                    <a class="project-link"
+                       href="https://github.com/kayumsntx/ASP.NET-MVC-5-Employee-Management-System"
+                       target="_blank">
+                        GitHub →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     EDUCATION
+========================= -->
+
+<section id="education">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>Education</h2>
+
+            <p>Academic background</p>
+
+        </div>
+
+
+        <div class="education-grid">
+
+
+            <div class="education-card">
+
+                <h3>
+                    Bachelor of Arts (B.A) in English
+                </h3>
+
+                <p>
+                    City University
+                </p>
+
+                <p>
+                    CGPA: 2.93 | 2024
+                </p>
+
+            </div>
+
+
+            <div class="education-card">
+
+                <h3>
+                    Higher Secondary Certificate
+                </h3>
+
+                <p>
+                    Govt. Dhamrai College
+                </p>
+
+                <p>
+                    Science | GPA: 3.17 | 2019
+                </p>
+
+            </div>
+
+
+            <div class="education-card">
+
+                <h3>
+                    Secondary School Certificate
+                </h3>
+
+                <p>
+                    Gakulnagar High School
+                </p>
+
+                <p>
+                    Science | GPA: 4.77 | 2017
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     TRAINING
+========================= -->
+
+<section class="training">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>Professional Training</h2>
+
+        </div>
+
+
+        <div class="training-box">
+
+            <h3>
+                Cross Platform Apps using ASP.NET
+            </h3>
+
+            <p>
+                IsDB-BISEW IT Scholarship Programme
+            </p>
+
+            <br>
+
+            <ul>
+
+                <li>
+                    Programming with C# and .NET
+                </li>
+
+                <li>
+                    MS SQL Server database design and development
+                </li>
+
+                <li>
+                    HTML5, CSS3, JavaScript and jQuery
+                </li>
+
+                <li>
+                    Node.js and Express.js
+                </li>
+
+                <li>
+                    ASP.NET MVC 5 with Entity Framework 6 Code First
+                </li>
+
+                <li>
+                    ASP.NET Core with Entity Framework Core Code First
+                </li>
+
+                <li>
+                    Web APIs and Web Services
+                </li>
+
+                <li>
+                    Angular and React
+                </li>
+
+                <li>
+                    Blazor and .NET MAUI
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section class="contact" id="contact">
+
+    <div class="container">
+
+        <h2>
+            Let's Connect
+        </h2>
+
+        <p>
+            I'm interested in software engineering,
+            full-stack development and enterprise application opportunities.
+        </p>
+
+
+        <div class="contact-links">
+
+            <a class="contact-link"
+               href="mailto:mdcu24@gmail.com">
+                Email
+            </a>
+
+            <a class="contact-link"
+               href="tel:+8801789419619">
+                Phone
+            </a>
+
+            <a class="contact-link"
+               href="https://github.com/kayumsntx"
+               target="_blank">
+                GitHub
+            </a>
+
+            <a class="contact-link"
+               href="https://www.linkedin.com/in/md-kayum-hossain"
+               target="_blank">
+                LinkedIn
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    © <span id="year"></span> Md Kayum Hossain.
+    All rights reserved.
+
+</footer>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+    // Mobile menu
+
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", () => {
+
+        navLinks.classList.toggle("active");
+
+    });
+
+
+    // Close menu after clicking a link
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            navLinks.classList.remove("active");
+
+        });
+
+    });
+
+
+    // Current year
+
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+
+</script>
 
 </body>
 </html>
